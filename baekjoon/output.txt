@@ -1,1 +1,4 @@
-6
+Equilateral
+Scalene
+Invalid
+Isoceles
