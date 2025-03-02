@@ -1,4 +1,7 @@
-Equilateral
-Scalene
-Invalid
-Isoceles
+1
+1
+2
+2
+2
+2
+5
