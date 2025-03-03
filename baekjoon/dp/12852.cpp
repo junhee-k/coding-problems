@@ -30,5 +30,10 @@ int main() {
             count--;
         }
     }
-    
 }
+
+/*
+Same solution as 1463 except you have to be able to backtrack to find your solution. 
+This could have been done by maintaining another array containing the previous indexes 
+but that would require me to rewrite the solution. Also, I wanted to see if I could go backward.
+*/
