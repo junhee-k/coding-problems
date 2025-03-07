@@ -40,3 +40,18 @@ int main() {
     cout << ans << '\n';
 }
 
+/*
+This dp problem uses requires you to check the maximum
+count for bitonic sequences. This is found by finding
+both the counts for longest increasing sequence and 
+longest decreasing sequences. Then, at the last step,
+we add these the results for each index of the dp array
+increasing and descreasing to find the maximum value.
+The -1 is added for because the index number is counted
+twice if we add the count for both increasing and
+decreasing. Came close to finding the answer but had
+to check another person's answer because i couldn't 
+figure out that the second condition of the if statement.
+That part is required to ensure that it the new value is
+higher than another value that was found before.
+*/
