@@ -1,40 +1,24 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
+int n, k;
+long long dp[201][201];
 
-int n, m;
-int arr[500][500];
-int dp[500][500];
-
-int dx[] = {0,0,1,-1};
-int dy[] = {1,-1,0,0};
-
-int DFS(int x, int y){
-    if(x == n-1 && y == m-1) return 1;
-    if(dp[x][y] != -1) return dp[x][y];
-
-    dp[x][y] = 0;
-    for (int i =0; i < 4; i++){
-        int nx = x + dx[i];
-        int ny = y + dy[i];
-        if(nx >= 0 && ny >= 0 && nx < n && ny < m){
-            if(arr[nx][ny] < arr[x][y]){
-                dp[x][y] = dp[x][y] + DFS(nx,ny);
-            }
-        }
-    }
-    return dp[x][y];
-}
 
 int main() {
-    cin >> n >> m;
-
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            cin >> arr[i][j];
-            dp[i][j] = -1;
-        }
+    cin >> n >> k;
+    for (int j = 0; j <= n; j++){
+        dp[1][j] = 1;
     }
 
-    cout << DFS(0,0);
+    for (int i = 2; i <= k; i++) {
+        for (int j = 0; j <= n; j++) {
+            for (int k = 0; k <= j; k++){
+                dp[i][j] += dp[i-1][j-k];
+            }
+            dp[i][j] %= 1000000000;
+        }
+    }
+    cout << dp[k][n];
 }
